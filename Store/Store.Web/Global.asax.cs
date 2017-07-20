@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Autofac;
+using Autofac.Integration.Mvc;
+using Store.Domain.Concrete;
+using Store.Domain.Abstact;
 
 namespace Store.Web
 {
@@ -13,6 +17,10 @@ namespace Store.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            var builder = new ContainerBuilder();
+            builder.RegisterType<EFProductRepository>().As<IProductRepository>();
+
         }
     }
 }
