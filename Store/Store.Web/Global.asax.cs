@@ -20,7 +20,8 @@ namespace Store.Web
 
             var builder = new ContainerBuilder();
             builder.RegisterType<EFProductRepository>().As<IProductRepository>();
-
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }
