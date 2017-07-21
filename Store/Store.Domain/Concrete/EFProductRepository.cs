@@ -11,10 +11,15 @@ namespace Store.Domain.Concrete
     public class EFProductRepository : IProductRepository
     {
         EFDbContext context = new EFDbContext();
-        public IEnumerable<Product> Products
+        public Product GetProduct()
         {
-            get { return context.product; }
+            Product pro = new Product { ProductID = 1,Name="Auto",Description="Fucking Great",Price=2000 };
+            return pro;
         }
+        //public IEnumerable<Product> Products
+        //{
+        //    get { return context.product; }
+        //}
 
         public Product DeleteProduct(int productId)
         {

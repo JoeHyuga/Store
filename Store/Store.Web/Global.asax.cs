@@ -19,7 +19,10 @@ namespace Store.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             var builder = new ContainerBuilder();
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterType<EFProductRepository>().As<IProductRepository>();
+            builder.RegisterType<EFUserRepository>().As<IUserRepository>();
+            builder.RegisterFilterProvider();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }

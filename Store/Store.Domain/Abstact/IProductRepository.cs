@@ -9,7 +9,8 @@ namespace Store.Domain.Abstact
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> Products { get; }
+        //IEnumerable<Product> Products { get; }
+        Product GetProduct();
         void SaveProduct(Product product);
         Product DeleteProduct(int productId);
     }
