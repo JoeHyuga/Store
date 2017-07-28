@@ -1,0 +1,5 @@
+E:\Store\Store\Store.Common\obj\Debug\Store.Common.csprojResolveAssemblyReference.cache
+E:\Store\Store\Store.Common\bin\Debug\Store.Common.dll
+E:\Store\Store\Store.Common\bin\Debug\Store.Common.pdb
+E:\Store\Store\Store.Common\obj\Debug\Store.Common.dll
+E:\Store\Store\Store.Common\obj\Debug\Store.Common.pdb

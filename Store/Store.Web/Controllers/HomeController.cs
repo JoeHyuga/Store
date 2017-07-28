@@ -1,4 +1,5 @@
-﻿using Store.Domain.Abstact;
+﻿using Store.Common;
+using Store.Domain.Abstact;
 using Store.Domain.Entity;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,12 @@ namespace Store.Web.Controllers
         }
         public ActionResult Index()
         {
-            Product product=respository.GetProduct();
             return View();
+        }
+        public string List()
+        {
+            Product product = respository.GetProduct();
+            return "[" + JsonHelper.GetJson<Product>(product) + "]";
         }
     }
 }

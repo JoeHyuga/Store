@@ -13,7 +13,7 @@ namespace Store.Domain.Concrete
         EFDbContext context = new EFDbContext();
         public Product GetProduct()
         {
-            Product pro = new Product { ProductID = 1,Name="Auto",Description="Fucking Great",Price=2000 };
+            Product pro = new Product { ProductID = 1, Name = "Auto", Description = "Fucking Great", Price = 2000, Count = 30  };
             return pro;
         }
         //public IEnumerable<Product> Products

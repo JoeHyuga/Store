@@ -1,7 +1,55 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    Layout = null;
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" type="text/css" rel="stylesheet"  />
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular.js"></script>
+</head>
+<body>
+    <div ng-app="ProductList" ng-controller="ProductCtrl">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>类别</th>
+                    <th>价格</th>
+                    <th>数量</th>
+                    <th>描述</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="x in names track by $index">
+                <td>{{x.Name}}</td>
+                <td>{{x.CateGory}}</td>
+                <td>{{x.Price}}</td>
+                <td>{{x.Count}}</td>
+                <td>{{x.Description}}</td>
+                <td ng-click=""></td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        var ProductApp = angular.module("ProductList", []);
+        ProductApp.controller("ProductCtrl", function ($scope, $http) {
+            $http({
+                method: "get",
+                url: "List",
+                dataType: "json",
+                header: { "Content-Type": "application/json;charset=utf-8" }
+            }).then(function success(response) {
+                $scope.names = response.data;
+            }, function error(error) {
+                alert(error.error.data);
+            });
+        });
+    </script>
+</body>
+</html>
