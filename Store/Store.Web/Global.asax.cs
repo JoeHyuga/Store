@@ -22,6 +22,7 @@ namespace Store.Web
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterType<EFProductRepository>().As<IProductRepository>();
             builder.RegisterType<EFUserRepository>().As<IUserRepository>();
+            builder.RegisterType<EFCartRepository>().As<ICartRepository>();
             builder.RegisterFilterProvider();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

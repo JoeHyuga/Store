@@ -1,6 +1,7 @@
 ﻿using Store.Common;
 using Store.Domain.Abstact;
 using Store.Domain.Entity;
+using Store.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,15 @@ namespace Store.Web.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// 显示产品列表
+        /// </summary>
+        /// <returns></returns>
         public string List()
         {
-            Product product = respository.GetProduct();
-            return "[" + JsonHelper.GetJson<Product>(product) + "]";
+            ProductsListViewModel model = new ProductsListViewModel();
+            model.Products = respository.Products;
+            return "[" + JsonHelper.GetJson<Product>(model.Products.FirstOrDefault()) + "]";
         }
     }
 }

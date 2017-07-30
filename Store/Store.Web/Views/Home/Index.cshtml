@@ -32,7 +32,7 @@
                 <td>{{x.Price}}</td>
                 <td>{{x.Count}}</td>
                 <td>{{x.Description}}</td>
-                <td><a ng-click="AddCart({{x.ProductId}})">加入购物车</a></td>
+                <td><a ng-click="AddCart($event)" data-id="{{x.ProductID}}" >购买</a></td>
             </tr>
         </table>
     </div>
@@ -49,6 +49,18 @@
             }, function error(error) {
                 alert(error.error.data);
             });
+            $scope.AddCart = function (e) {
+                var id = $(e.target).data("id");
+                $http({
+                    method: "post",
+                    url: "AddCart",
+                    data: {ProductID:id,UserID:"user"}
+                }).then(function success(response) {
+                    
+                }, function error(error) {
+                    alert(error.data);
+                });
+            }
         });
     </script>
 </body>
