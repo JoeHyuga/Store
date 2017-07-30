@@ -10,6 +10,7 @@ namespace Store.Domain.Concrete
 {
     public class EFDbContext:DbContext
     {
-        public DbSet<Product> product { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Cart> Carts { get; set; }
     }
 }

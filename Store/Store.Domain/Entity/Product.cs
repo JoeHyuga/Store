@@ -17,7 +17,7 @@ namespace Store.Domain.Entity
         //[Required]
         //[Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive price")]
         public decimal Price { get; set; }
-        public decimal Count { get; set; }
+        public string Count { get; set; }
         //[Required(ErrorMessage = "Please specify a category")]
         public string CateGory { get; set; }
 

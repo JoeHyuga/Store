@@ -77,11 +77,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstact\ICartRepository.cs" />
     <Compile Include="Abstact\IProductRepository.cs" />
     <Compile Include="Abstact\IUserRepository.cs" />
+    <Compile Include="Concrete\EFCartRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFProductRepository.cs" />
     <Compile Include="Concrete\EFUserRepository.cs" />
+    <Compile Include="Entity\Cart.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Entity\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
